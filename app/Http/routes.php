@@ -15,8 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('productindex', 'ProductController@index');
+Route::get('bookindex', 'BookController@index');
 
+Route::get('bookform', 'BookController@form');
+
+Route::get('save', 'BookController@save');
 /*
 |--------------------------------------------------------------------------
 | Application Routes
