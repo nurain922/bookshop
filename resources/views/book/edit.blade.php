@@ -7,7 +7,7 @@
 
 <body>
         <form action="\update" method="POST">
-        <input type="hidden" name="hidden" value="secret">
+            <input type="hidden" name="_token" value="{{ csrf_token()}}">
         <input type="hidden" name="id" value="<?= $row->id ?>">
         BookTitle
         <input type="text" name="Book_Title" value="<?= $row->Book_Title ?>" class="form-control">

@@ -2,9 +2,9 @@
 namespace App\Http\Controllers;
 use DB;
 use App\Http\Controllers;
-use App\Http\Controllers\Session;
 //for transaction or process
 use Illuminate\Http\Request;
+use Illuminate\Session\TokenMismatchException;
 class BookController extends Controller
 {
   	
@@ -13,16 +13,25 @@ class BookController extends Controller
    		$book = DB::table('book_details')->get();
 		return view('book.index', ['book' => $book]);
     }
+
+    public function index_cus()
+    {
+      $book = DB::table('book_details')->get();
+    return view('book.index_cus', ['book' => $book]);
+    }
      public function form()
     {
 		return view('book.form');
     }
+
      public function delete($id)
     {
       $i= DB::table('book_details')->where('id',$id)->delete();
+
       if($i >0)
       {
-      \Session::flash('message','Record have been successfully DELETED');
+        Session::flash('message','Empty input not accepted');
+     // $request->session()->flash('message', 'Record have been successfully DELETED');
       return redirect('bookindex');
       }
     }
@@ -45,8 +54,12 @@ class BookController extends Controller
     $i = DB::table('book_details')->insert($data);
     if($i > 0)
     {
-      \Session::flash('message','Record have been successfully saved');
+      //Flash::message('Welcome Aboard!');
+     //$request->session()->flash('message', 'Record have been successfully SAVED');
+     Session::flash('message','Empty input not accepted');
       return redirect('bookindex');
+
+      
     }
   }
 
@@ -63,7 +76,7 @@ class BookController extends Controller
     $i = DB::table('book_details')->where('id',$post['id'])->update($data);
     if($i > 0)
     {
-      
+      //$request->session()->flash('message', 'Record have been successfully UPDATED');
       return redirect('bookindex');
     }
   }

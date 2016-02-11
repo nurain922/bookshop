@@ -8,7 +8,7 @@
 
 <body>
         <form action="\save" method="POST">
-        <input type="hidden" name="hidden" value="secret">
+        <input type="hidden" name="_token" value="{{ csrf_token()}}">
         BookTitle
         <input type="text" name="Book_Title" class="form-control">
         BookISBN
