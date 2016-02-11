@@ -4,10 +4,11 @@
 <html>
 <head>
     <title>Add Book</title>
-</head>
+</head> 
 
 <body>
         <form action="\save" method="POST">
+        <input type="hidden" name="hidden" value="secret">
         BookTitle
         <input type="text" name="Book_Title" class="form-control">
         BookISBN

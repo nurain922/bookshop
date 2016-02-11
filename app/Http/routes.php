@@ -12,6 +12,11 @@ Route::get('bookform', 'BookController@form');
 
 Route::post('save', 'BookController@save');
 
+Route::post('update', 'BookController@update');
+
+Route::get('delete/{id}', 'BookController@delete');
+
+Route::get('edit/{id}', 'BookController@edit');
 //Route::get('store', 'BookController@store');
 /*
 |--------------------------------------------------------------------------

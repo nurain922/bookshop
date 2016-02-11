@@ -1,5 +1,7 @@
 @extends('layout.master')
 @section('content')
+<p style="color:red;"><?php echo Session::get('message');?></p>
+<a href="<?php echo'bookform' ?>">Add New Book </a>
   <table class = "table table-bordered table-hover">
         <thead> 
         	<th>BookID</th>
@@ -21,8 +23,8 @@
 			  <td><?php echo $row->Book_Author?></td>
 			  <td><?php echo $row->Book_Publisher?></td>
 			  <td>
-			  		<a href="<?php echo 'EditProduct/'.$row->id ?>">Edit</a>
-			  		<a href="<?php echo 'DeleteProduct/'.$row->id ?>">Delete</a>
+			  		<a href="<?php echo 'edit/'.$row->id ?>">Edit</a>
+			  		<a href="<?php echo 'delete/'.$row->id ?>">Delete</a>
 			  </td>
 			 </tr>
 			  <?php } ?>
