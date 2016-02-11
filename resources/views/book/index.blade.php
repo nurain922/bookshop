@@ -9,6 +9,7 @@
         	<th>BookISBN</th>
         	<th>BookAuthor</th>
         	<th>BookPublisher</th>
+        	<th>BookPrice</th>
         	<th>Action</th>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@
 			  <td><?php echo $row->Book_ISBN?></td>
 			  <td><?php echo $row->Book_Author?></td>
 			  <td><?php echo $row->Book_Publisher?></td>
+			  <td><?php echo $row->Book_Price?></td>
 			  <td>
 			  		<a href="<?php echo 'edit/'.$row->id ?>">Edit</a>
 			  		<a href="<?php echo 'delete/'.$row->id ?>">Delete</a>

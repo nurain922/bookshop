@@ -17,6 +17,9 @@
         <input type="text" name="Book_Author" value="<?= $row->Book_Author ?>" class="form-control">
         BookPublisher
         <input type="text"  name="Book_Publisher" value="<?= $row->Book_Publisher?>" class="form-control">
+        BookPrice
+        <input type="text"  name="Book_Price" value="<?= $row->Book_Price?>" class="form-control">
+
         <br/>
         <input type="Submit" value="Edit Record" class="btn btn-primary">
     </form>

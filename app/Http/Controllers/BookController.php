@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use DB;
 use App\Http\Controllers;
-use Illuminate\Pagination\LengthAwarePaginator;
+use App\Http\Controllers\Session;
 //for transaction or process
 use Illuminate\Http\Request;
 class BookController extends Controller
@@ -40,6 +40,7 @@ class BookController extends Controller
                   'Book_ISBN' => $post['Book_ISBN'],
                   'Book_Author' => $post['Book_Author'],
                   'Book_Publisher' => $post['Book_Publisher'],
+                  'Book_Price' => $post['Book_Price'],
       );
     $i = DB::table('book_details')->insert($data);
     if($i > 0)
@@ -57,8 +58,9 @@ class BookController extends Controller
                   'Book_ISBN' => $post['Book_ISBN'],
                   'Book_Author' => $post['Book_Author'],
                   'Book_Publisher' => $post['Book_Publisher'],
+                  'Book_Price' => $post['Book_Price'],
       );
-    $i = DB::table('book_details')->where('id',$post['id'])->insert($data);
+    $i = DB::table('book_details')->where('id',$post['id'])->update($data);
     if($i > 0)
     {
       

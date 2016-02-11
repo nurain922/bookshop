@@ -17,6 +17,8 @@
         <input type="text" name="Book_Author" class="form-control">
         BookPublisher
         <input type="text"  name="Book_Publisher" class="form-control">
+        BookPrice
+        <input type="text"  name="Book_Price" class="form-control">
         <br/>
         <input type="Submit" value="Save Record" class="btn btn-primary">
     </form>
