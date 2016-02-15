@@ -2,22 +2,22 @@
 @section('content')
 <html>
 <head>
-    <title>Add Book</title>
+    <title>Edit Book</title>
 </head> 
 
 <body>
         <form action="\update" method="POST">
-            <input type="hidden" name="_token" value="{{ csrf_token()}}">
+        <input type="hidden" name="_token" value="{{{csrf_token()}}}">
         <input type="hidden" name="id" value="<?= $row->id ?>">
-        BookTitle
+        BookTitle :
         <input type="text" name="Book_Title" value="<?= $row->Book_Title ?>" class="form-control">
-        BookISBN
+        BookISBN :
         <input type="text" name="Book_ISBN" value="<?= $row->Book_ISBN ?>" class="form-control">
-        BookAuthor
+        BookAuthor :
         <input type="text" name="Book_Author" value="<?= $row->Book_Author ?>" class="form-control">
-        BookPublisher
+        BookPublisher :
         <input type="text"  name="Book_Publisher" value="<?= $row->Book_Publisher?>" class="form-control">
-        BookPrice
+        BookPrice :
         <input type="text"  name="Book_Price" value="<?= $row->Book_Price?>" class="form-control">
 
         <br/>

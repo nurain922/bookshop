@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('content')
 
- {{Session::get('message')}}
+
 
   <table class = "table table-bordered table-hover">
         <thead> 

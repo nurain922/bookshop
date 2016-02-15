@@ -24,3 +24,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 }
+class User extends Eloquent {
+
+    $users = User::all();
+    $users->toarray();
+
+  protected $guarded = array('id');
+  protected $fillable = array('name', 'email');
+
+  public static $rules = array(
+    'name' => 'required|min:5',
+    'email' => 'required|email'
+  );
+}

@@ -2,7 +2,6 @@
 @section('content')
 
 
-
 <html>
 <head>
     <title>Buy a Book</title>
