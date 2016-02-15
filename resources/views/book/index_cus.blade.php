@@ -18,11 +18,11 @@
             ?>
             <tr>
               <td><?php echo $row->id ?></td>
-              <td><?php echo $row->Book_Title?></td>
-              <td><?php echo $row->Book_ISBN?></td>
-              <td><?php echo $row->Book_Author?></td>
-              <td><?php echo $row->Book_Publisher?></td>
-              <td><?php echo $row->Book_Price?></td>
+              <td><?php echo $row->book_title?></td>
+              <td><?php echo $row->book_ISBN?></td>
+              <td><?php echo $row->book_author?></td>
+              <td><?php echo $row->book_publisher?></td>
+              <td><?php echo $row->book_price?></td>
               <td>
                     <a href="<?php echo 'Buy/'.$row->id ?>" class="btn btn-success"<i class="fa fa-plus-square"></i> >Add to Cart</a>
                     

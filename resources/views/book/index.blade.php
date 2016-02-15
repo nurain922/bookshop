@@ -1,6 +1,11 @@
 @extends('layout.master')
 @section('content')
 
+@if(Session::has('message'))
+    <div class="alert alert-info">
+        {{ Session::get('message') }}
+    </div>
+@endif
 
 
   <table class = "table table-bordered table-hover">
@@ -20,11 +25,11 @@
 			?>
 			<tr>
 			  <td><?php echo $row->id ?></td>
-			  <td><?php echo $row->Book_Title?></td>
-			  <td><?php echo $row->Book_ISBN?></td>
-			  <td><?php echo $row->Book_Author?></td>
-			  <td><?php echo $row->Book_Publisher?></td>
-			  <td><?php echo $row->Book_Price?></td>
+			  <td><?php echo $row->book_title?></td>
+			  <td><?php echo $row->book_ISBN?></td>
+			  <td><?php echo $row->book_author?></td>
+			  <td><?php echo $row->book_publisher?></td>
+			  <td><?php echo $row->book_price?></td>
 			  <td>
 			  		<a href="<?php echo 'edit/'.$row->id ?>" class="btn btn-success">Edit</a>
 			  		<a href="<?php echo 'delete/'.$row->id ?>" class="btn btn-warning">Delete</a>

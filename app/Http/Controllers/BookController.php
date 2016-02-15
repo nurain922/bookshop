@@ -5,16 +5,17 @@ use App\Http\Controllers;
 //for transaction or process
 use Illuminate\Http\Request;
 use Illuminate\Session\TokenMismatchException;
+use App\Book as Book;
 class BookController extends Controller
 {
   	
     public function index(){
-   		$book = DB::table('book_details')->get();
+   		$book = DB::table('books')->get();
 		return view('book.index', ['book' => $book]);
     }
 
     public function index_cus(){
-      $book = DB::table('book_details')->get();
+      $book = DB::table('books')->get();
     return view('book.index_cus', ['book' => $book]);
     }
 
@@ -22,14 +23,16 @@ class BookController extends Controller
 		return view('book.form');
     }
 
-     public function delete($id){
-      $i= DB::table('book_details')->where('id',$id)->delete();
+     public function delete(Request $request,$id){
+      $i= DB::table('books')->where('id',$id)->delete();
 
-      if($i >0){ return redirect('bookindex');}
+      if($i >0){ 
+        $request->session()->flash('message', 'The data has been successfully DELETED!');
+        return redirect('bookindex');}
     }
 
     public function edit($id){
-      $row= DB::table('book_details')->where('id',$id)->first();
+      $row= DB::table('books')->where('id',$id)->first();
       return view('book.edit')->with('row',$row);
     }
 
@@ -37,14 +40,15 @@ class BookController extends Controller
     {
 		$post = $request->all();
 		$data = array(
-                  'Book_Title' => $post['Book_Title'],
-                  'Book_ISBN' => $post['Book_ISBN'],
-                  'Book_Author' => $post['Book_Author'],
-                  'Book_Publisher' => $post['Book_Publisher'],
-                  'Book_Price' => $post['Book_Price'],
+                  'book_title' => $post['book_title'],
+                  'book_ISBN' => $post['book_ISBN'],
+                  'book_author' => $post['book_author'],
+                  'book_publisher' => $post['book_publisher'],
+                  'book_price' => $post['book_price'],
       );
-    $i = DB::table('book_details')->insert($data);
+    $i = DB::table('books')->insert($data);
     if($i > 0){
+      $request->session()->flash('message', 'The data has been successfully SAVED!');
       return redirect('bookindex');
     }
   }
@@ -52,16 +56,25 @@ class BookController extends Controller
   public function update(Request $request){
     $post = $request->all();
     $data = array(
-                  'Book_Title' => $post['Book_Title'],
-                  'Book_ISBN' => $post['Book_ISBN'],
-                  'Book_Author' => $post['Book_Author'],
-                  'Book_Publisher' => $post['Book_Publisher'],
-                  'Book_Price' => $post['Book_Price'],
+                  'book_title' => $post['book_title'],
+                  'book_ISBN' => $post['book_ISBN'],
+                  'book_author' => $post['book_author'],
+                  'book_publisher' => $post['book_publisher'],
+                  'book_price' => $post['book_price'],
       );
-    $i = DB::table('book_details')->where('id',$post['id'])->update($data);
+    $i = DB::table('books')->where('id',$post['id'])->update($data);
     if($i > 0){
+      $request->session()->flash('message', 'The data has been successfully UPDATED!');
       return redirect('bookindex');
     }
+  }
+
+   public function show($id){
+    //specific user
+    $book = Book::find($id);
+    echo $book->book_title;
+   // $users = DB::table('user_details')->->where('iduser',$id)->first();
+   // return view('user.index', ['user' => $users]);
   }
     
 }

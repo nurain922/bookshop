@@ -7,11 +7,15 @@ use Illuminate\Http\Request;
 use Illuminate\Session\TokenMismatchException;
 class UserController extends Controller
 {
+  public function log(){
+    return view('user.user');
+  }
+ 
   /**
    * Display a listing of the resource.
    */
   public function index(){
-    $users = DB::table('user_details')->get();
+    $users = DB::table('users')->get();
     return view('user.index', ['user' => $users]);
   }
 
@@ -28,14 +32,15 @@ class UserController extends Controller
                   'user_email' => $post['user_email'],
                   'user_phone' => $post['user_phone'],
       );
-    $i = DB::table('user_details')->insert($data);
+    $i = DB::table('users')->insert($data);
     if($i > 0){
+      $request->session()->flash('message', 'The data has been successfully SAVED!');
       return redirect('userindex');
     }
   }
 
   public function edit($id){
-    $row= DB::table('user_details')->where('iduser',$id)->first();
+    $row= DB::table('users')->where('iduser',$id)->first();
       return view('user.edit')->with('row',$row);
   }
 
@@ -48,15 +53,17 @@ class UserController extends Controller
                   'user_email' => $post['user_email'],
                   'user_phone' => $post['user_phone'],
       );
-    $i = DB::table('user_details')->where('iduser',$post['iduser'])->update($data);
+    $i = DB::table('users')->where('iduser',$post['iduser'])->update($data);
     if($i > 0){
+      $request->session()->flash('message', 'The data has been successfully UPDATED!');
       return redirect('userindex');
     }
   }
 
-  public function delete($id){
-    $i = DB::table('user_details')->where('iduser',$id)->delete();
+  public function delete(Request $request,$id){
+    $i = DB::table('users')->where('iduser',$id)->delete();
       if($i > 0){
+      $request->session()->flash('message', 'The data has been successfully DELETED!');
       return redirect('userindex');
     }
   }
