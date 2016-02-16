@@ -15,7 +15,7 @@ class UserController extends Controller
    * Display a listing of the resource.
    */
   public function index(){
-    $users = DB::table('users')->get();
+    $users = DB::table('user_acc')->get();
     return view('user.index', ['user' => $users]);
   }
 
@@ -32,7 +32,7 @@ class UserController extends Controller
                   'user_email' => $post['user_email'],
                   'user_phone' => $post['user_phone'],
       );
-    $i = DB::table('users')->insert($data);
+    $i = DB::table('user_acc')->insert($data);
     if($i > 0){
       $request->session()->flash('message', 'The data has been successfully SAVED!');
       return redirect('userindex');
@@ -40,7 +40,7 @@ class UserController extends Controller
   }
 
   public function edit($id){
-    $row= DB::table('users')->where('iduser',$id)->first();
+    $row= DB::table('user_acc')->where('iduser',$id)->first();
       return view('user.edit')->with('row',$row);
   }
 
@@ -53,7 +53,7 @@ class UserController extends Controller
                   'user_email' => $post['user_email'],
                   'user_phone' => $post['user_phone'],
       );
-    $i = DB::table('users')->where('iduser',$post['iduser'])->update($data);
+    $i = DB::table('user_acc')->where('iduser',$post['iduser'])->update($data);
     if($i > 0){
       $request->session()->flash('message', 'The data has been successfully UPDATED!');
       return redirect('userindex');
@@ -61,7 +61,7 @@ class UserController extends Controller
   }
 
   public function delete(Request $request,$id){
-    $i = DB::table('users')->where('iduser',$id)->delete();
+    $i = DB::table('user_acc')->where('iduser',$id)->delete();
       if($i > 0){
       $request->session()->flash('message', 'The data has been successfully DELETED!');
       return redirect('userindex');
@@ -70,6 +70,8 @@ class UserController extends Controller
 
     public function show($id){
     //specific user
+      //$user = \User::find($id);
+      //echo $user->iduser;
    // $users = DB::table('user_details')->->where('iduser',$id)->first();
    // return view('user.index', ['user' => $users]);
   }

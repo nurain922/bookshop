@@ -24,7 +24,7 @@
               <td><?php echo $row->book_publisher?></td>
               <td><?php echo $row->book_price?></td>
               <td>
-                    <a href="<?php echo 'Buy/'.$row->id ?>" class="btn btn-success"<i class="fa fa-plus-square"></i> >Add to Cart</a>
+                    <a href="<?php echo 'createorder/'.$row->id ?>" class="btn btn-success"<i class="fa fa-plus-square"></i> Add to Cart</a>
                     
               </td>
              </tr>

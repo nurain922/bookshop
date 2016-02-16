@@ -40,5 +40,5 @@
         </tbody>
   </table>
 
-  <a href="<?php echo'bookform' ?>" class="btn btn-info pull-right">Add New Book </a>
+  <a href="<?php echo'createbook' ?>" class="btn btn-info pull-right">Add New Book </a>
 @stop()

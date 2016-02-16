@@ -30,7 +30,7 @@ Route::get('orders', function () {
 }); 
 
 Route::get('/invoice', function () {
-    return view('payment.invoice');
+    return view('order.invoice');
 });
 //index
 
@@ -60,21 +60,24 @@ Route::group(['middleware' => ['web']], function () {
     //
 
 Route::get('bookindex', 'BookController@index');
-Route::get('bookform', 'BookController@form');
+Route::get('createbook', 'BookController@form');
 
 
 
 Route::get('edit/{id}', 'BookController@edit');
 Route::get('book/{id}', 'BookController@show');
 //form for payment
-Route::get('create', 'PostController@create');
-Route::get('store/{request}', 'PostController@store');
+Route::get('orderindex', 'OrderController@index');
+//Route::get('createorder/{id}/{id}', 'OrderController@create');
+Route::get('createorder/{book_id}', 'OrderController@create');
+///
+Route::POST('store', 'OrderController@store');
 
 //form for user
 Route::get('createuser', 'UserController@create');
 Route::get('edituser/{id}', 'UserController@edit');
 
-Route::get('showuser', 'UserController@show');
+Route::get('showuser/{id}', 'UserController@show');
 Route::post('save', 'BookController@save');
 Route::post('update', 'BookController@update');
 Route::get('delete/{id}', 'BookController@delete');
@@ -86,8 +89,9 @@ Route::get('deleteuser/{id}', 'UserController@delete');
 
 
 });
-Route::get('laravel-version', function()
-{
-$laravel = app();
-return "Your Laravel version is ".$laravel::VERSION;
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
 });

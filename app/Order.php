@@ -16,4 +16,6 @@ class Order extends Model
      public function book(){
      	return $this->belongsTo('App\Book');
      }
+
+     
 }
