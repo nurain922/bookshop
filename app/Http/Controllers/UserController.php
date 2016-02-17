@@ -5,8 +5,15 @@ use App\Http\Controllers;
 //for transaction or process
 use Illuminate\Http\Request;
 use Illuminate\Session\TokenMismatchException;
+use App\User as User;
 class UserController extends Controller
 {
+  public function __construct()
+    {
+        $this->middleware('isAdmin'); //only admin 
+    }
+
+
   public function log(){
     return view('user.user');
   }
@@ -15,7 +22,7 @@ class UserController extends Controller
    * Display a listing of the resource.
    */
   public function index(){
-    $users = DB::table('user_acc')->get();
+    $users = DB::table('users')->get();
     return view('user.index', ['user' => $users]);
   }
 
@@ -26,13 +33,11 @@ class UserController extends Controller
    public function save(Request $request){
     $post = $request->all();
     $data = array(
-                  'user_name' => $post['user_name'],
-                  'user_pass' => $post['user_pass'],
-                  'user_fname' => $post['user_fname'],
-                  'user_email' => $post['user_email'],
-                  'user_phone' => $post['user_phone'],
+                  'name' => $post['name'],
+                 'email' => $post['email'],
+                  'password' => $post['password']
       );
-    $i = DB::table('user_acc')->insert($data);
+    $i = DB::table('users')->insert($data);
     if($i > 0){
       $request->session()->flash('message', 'The data has been successfully SAVED!');
       return redirect('userindex');
@@ -40,20 +45,19 @@ class UserController extends Controller
   }
 
   public function edit($id){
-    $row= DB::table('user_acc')->where('iduser',$id)->first();
+    $row= DB::table('users')->where('iduser',$id)->first();
       return view('user.edit')->with('row',$row);
   }
 
   public function update(Request $request){
     $post = $request->all();
     $data = array(
-                 'user_name' => $post['user_name'],
-                  'user_pass' => $post['user_pass'],
-                  'user_fname' => $post['user_fname'],
-                  'user_email' => $post['user_email'],
-                  'user_phone' => $post['user_phone'],
+                 'name' => $post['name'],
+                 'email' => $post['email'],
+                  'password' => $post['password']
+                  
       );
-    $i = DB::table('user_acc')->where('iduser',$post['iduser'])->update($data);
+    $i = DB::table('users')->where('id',$post['id'])->update($data);
     if($i > 0){
       $request->session()->flash('message', 'The data has been successfully UPDATED!');
       return redirect('userindex');
@@ -61,7 +65,7 @@ class UserController extends Controller
   }
 
   public function delete(Request $request,$id){
-    $i = DB::table('user_acc')->where('iduser',$id)->delete();
+    $i = DB::table('users')->where('id',$id)->delete();
       if($i > 0){
       $request->session()->flash('message', 'The data has been successfully DELETED!');
       return redirect('userindex');
@@ -70,13 +74,8 @@ class UserController extends Controller
 
     public function show($id){
     //specific user
-      //$user = \User::find($id);
-      //echo $user->iduser;
-   // $users = DB::table('user_details')->->where('iduser',$id)->first();
-   // return view('user.index', ['user' => $users]);
+      $user = User::find($id);
+      return view('user.index', ['user' => $user]);
+     }
   }
-
-  
-  
-}
 

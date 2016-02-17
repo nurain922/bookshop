@@ -15,6 +15,12 @@ class OrderController extends Controller
     return view('order.index', ['order' => $orders]);
   }
 
+  
+    public function index_cus(){
+      $book = DB::table('books')->get();
+    return view('book.index_cus', ['book' => $book]);
+    }
+
     public function create($book_id)
     {
       //userid
@@ -31,20 +37,6 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make(Input::all(),
-        array(
-                   'book_title' => 'required',
-                   'unitprice' => 'required',
-                   'qty' => 'required'
-                )
-            );
-         if ($validator->fails()) {
-            return redirect('/createorder')
-                        ->withErrors($validator)
-                        ->withInput();
-        }
-
-        else{
             $post = $request->all();
             $data = array(
                    // 'id' => $post['id'],
@@ -58,9 +50,6 @@ class OrderController extends Controller
     if($i > 0){
       $request->session()->flash('message', 'Your order has been successfully SAVED!');
       return redirect('orderindex');
-    
-
     }
     }
-}
 }

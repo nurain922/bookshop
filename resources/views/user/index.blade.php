@@ -13,11 +13,9 @@
         <thead>
         <tr>
         <th>UserID</th>
-        <th>Username</th>
-        <th>Password</th>
         <th>Name</th>
         <th>Email</th>
-        <th>Phone</th>
+        <th>Password</th>
         <th>Action</th>
         
             </tr>
@@ -27,15 +25,13 @@
       <?php foreach($user as $row){
       ?>
                 <tr>
-                    <td><?php echo $row->iduser ?></td>
-                    <td><?php echo $row->user_name ?></td>
-                    <td><?php echo $row->user_pass ?></td>
-                    <td><?php echo $row->user_fname ?></td>
-                    <td><?php echo $row->user_email ?></td>
-                    <td><?php echo $row->user_phone ?></td>
+                    <td><?php echo $row->id ?></td>
+                    <td><?php echo $row->name ?></td>
+                    <td><?php echo $row->email ?></td>
+                    <td><?php echo $row->password ?></td>
               <td>
-            <a href="<?php echo 'edituser/'.$row->iduser?>" class="btn btn-success">Edit</a>
-            <a href="<?php echo 'deleteuser/'.$row->iduser ?>" class="btn btn-warning">Delete</a>
+            <a href="<?php echo 'edituser/'.$row->id?>" class="btn btn-success">Edit</a>
+            <a href="<?php echo 'deleteuser/'.$row->id ?>" class="btn btn-warning">Delete</a>
         </td>
        </tr>
             <?php } ?>

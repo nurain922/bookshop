@@ -8,16 +8,16 @@ use Illuminate\Session\TokenMismatchException;
 use App\Book as Book;
 class BookController extends Controller
 {
-  	
+  	public function __construct()
+    {
+        $this->middleware('isAdmin'); //only admin 
+    }
+
     public function index(){
    		$book = DB::table('books')->get();
 		return view('book.index', ['book' => $book]);
     }
 
-    public function index_cus(){
-      $book = DB::table('books')->get();
-    return view('book.index_cus', ['book' => $book]);
-    }
 
     public function form(){
 		return view('book.form');
@@ -28,7 +28,7 @@ class BookController extends Controller
 
       if($i >0){ 
         $request->session()->flash('message', 'The data has been successfully DELETED!');
-        return redirect('bookindex');}
+        return redirect('books');}
     }
 
     public function edit($id){
@@ -49,7 +49,7 @@ class BookController extends Controller
     $i = DB::table('books')->insert($data);
     if($i > 0){
       $request->session()->flash('message', 'The data has been successfully SAVED!');
-      return redirect('bookindex');
+      return redirect('books');
     }
   }
 
@@ -65,16 +65,13 @@ class BookController extends Controller
     $i = DB::table('books')->where('id',$post['id'])->update($data);
     if($i > 0){
       $request->session()->flash('message', 'The data has been successfully UPDATED!');
-      return redirect('bookindex');
+      return redirect('books');
     }
   }
 
    public function show($id){
-    //specific user
     $book = Book::find($id);
     echo $book->book_title;
-   // $users = DB::table('user_details')->->where('iduser',$id)->first();
-   // return view('user.index', ['user' => $users]);
   }
     
 }

@@ -1,10 +1,6 @@
 @extends('layout.master')
 @section('content')
 
-<p style="color:red">{{ $errors->first('book_title')}}</p>
-<p style="color:red">{{ $errors->first('unitpice')}}</p>
-<p style="color:red">{{ $errors->first('qty')}}</p>
-
 <html>
 <head>
     <title>Buy a Book</title>
@@ -18,7 +14,18 @@
         Unit Price :
         <input type="text" readonly value="{{ $book->book_price }}" name="unitprice" class="form-control">
         Quantity
-        <input type="text"  name="qty"  class="form-control">
+        <select  name="qty"  class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+        </select>
         <input type="hidden"  name="total" >
         <br/>
         <input type="Submit" value="Add to Cart"  class="btn btn-primary">
