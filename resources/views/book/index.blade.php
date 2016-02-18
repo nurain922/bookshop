@@ -1,14 +1,29 @@
 @extends('layout.master')
 @section('content')
 
-@if(Session::has('message'))
+@if(Session::has('message1'))
         <div class="alert alert-info alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h4><i class="icon fa fa-info"></i> Alert!</h4>
-        {{ Session::get('message') }}
+        {{ Session::get('message1') }}
         </div>
 @endif
 
+@if(Session::has('message2'))
+        <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-check"></i> Alert!</h4>
+        {{ Session::get('message2') }}
+        </div>
+@endif
+
+@if(Session::has('message3'))
+        <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+        {{ Session::get('message3') }}
+        </div>
+@endif
 
   <table class = "table table-bordered table-hover">
         <thead> 
@@ -18,7 +33,7 @@
         	<th>BookAuthor</th>
         	<th>BookPublisher</th>
         	<th>BookPrice</th>
-        	<th>Action</th>
+        	<th><center>Action</center></th>
         </thead>
         <tbody>
 			<?php 
@@ -33,14 +48,14 @@
 			  <td><?php echo $row->book_publisher?></td>
 			  <td><?php echo $row->book_price?></td>
 			  <td>
-			  		<a href="<?php echo 'edit/'.$row->id ?>" class="btn btn-success">Edit</a>
-			  		<a href="<?php echo 'delete/'.$row->id ?>" class="btn btn-warning">Delete</a>
+                    <a href="<?php echo 'book/'.$row->id ?>" class="btn btn-info">View</a>
+			  		<a href="<?php echo 'edit/'.$row->id ?>" class="btn btn-warning">Edit</a>
+			  		<a href="<?php echo 'delete/'.$row->id ?>" class="btn btn-danger">Delete</a>
 			  </td>
 			 </tr>
 			  <?php } ?>
 
         </tbody>
   </table>
-
-  <a href="<?php echo'createbook' ?>" class="btn btn-info pull-right">Add New Book </a>
+<center><a href="<?php echo'createbook' ?>" class="btn btn-success">Add New Book </a></center>
 @stop()

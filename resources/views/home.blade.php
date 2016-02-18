@@ -13,9 +13,8 @@
 
             </div>
         </div>
-
-              <div class="row">
-            <div class="col-lg-3 col-xs-6">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="col-lg-3 col-xs-3">
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
@@ -25,23 +24,23 @@
                 <div class="icon">
                   <i class="ion ion-bag"></i>
                 </div>
-                <a href="{{('/orderindex')}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{('/orders')}}" class="small-box-footer">Click Here! <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-3 col-xs-3">
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
-                  <p>Bounce Rate</p>
+                  <h3>50<sup style="font-size: 20px">%</sup></h3>
+                  <p>Books Up!</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
+                  <i class="fa fa-book"></i>
                 </div>
-                <a href="{{('/books')}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{('/books')}}" class="small-box-footer">Go checks <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-3 col-xs-3">
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
@@ -51,23 +50,36 @@
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
                 </div>
-                <a href="{{('/userindex')}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{('/users')}}" class="small-box-footer">Check this out! <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
+               <div class="col-lg-3 col-xs-3">
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3>65</h3>
-                  <p>Unique Visitors</p>
+                  <h3>New User</h3>
+                  <p>New Account</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="fa fa-briefcase"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="/customer" class="small-box-footer">Click Here!<i class="fa fa-arrow-circle-right"></i></a>
               </div>
-            </div><!-- ./col -->
-          </div><!-- /.row -->
+            </div>
+                 <div class="col-lg-3 col-xs-3">
+              <!-- small box -->
+              <div class="small-box bg-purple">
+                <div class="inner">
+                  <h3>Customer</h3>
+                  <p>Order</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-briefcase"></i>
+                </div>
+                <a href="/ordercustomer" class="small-box-footer">Click Here!<i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            </div>
     </div>
 </div>
 @endsection

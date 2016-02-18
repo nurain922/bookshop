@@ -21,7 +21,8 @@
         <input type="text"  name="book_price" value="<?= $row->book_price?>" class="form-control">
 
         <br/>
-        <input type="Submit" value="Edit Record" class="btn btn-primary">
+        <input type="Submit" value="Edit Record" class="btn btn-warning">
+        <a href="<?php echo '/books'?>" class="btn btn-primary">Back</a>
     </form>
 </body>
 </html>

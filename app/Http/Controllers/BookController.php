@@ -27,9 +27,10 @@ class BookController extends Controller
       $i= DB::table('books')->where('id',$id)->delete();
 
       if($i >0){ 
-        $request->session()->flash('message', 'The data has been successfully DELETED!');
-        return redirect('books');}
+        $request->session()->flash('message3', 'Warning! You just deleted a book!');
+        return redirect('books');
     }
+  }
 
     public function edit($id){
       $row= DB::table('books')->where('id',$id)->first();
@@ -48,7 +49,7 @@ class BookController extends Controller
       );
     $i = DB::table('books')->insert($data);
     if($i > 0){
-      $request->session()->flash('message', 'The data has been successfully SAVED!');
+      $request->session()->flash('message2', 'The book has been successfully SAVED!');
       return redirect('books');
     }
   }
@@ -64,14 +65,15 @@ class BookController extends Controller
       );
     $i = DB::table('books')->where('id',$post['id'])->update($data);
     if($i > 0){
-      $request->session()->flash('message', 'The data has been successfully UPDATED!');
+      $request->session()->flash('message1', 'The book has been successfully UPDATED!');
       return redirect('books');
     }
   }
 
    public function show($id){
-    $book = Book::find($id);
-    echo $book->book_title;
+    //$book = Book::find($id);
+    $book = DB::table('books')->where('id',$id)->first();
+      return view('book.view')->with('book',$book);
   }
     
 }

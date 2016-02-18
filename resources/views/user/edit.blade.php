@@ -8,13 +8,13 @@
 <body>
         <form action="\updateuser" method="POST">
         <input type="hidden" name="_token" value="{{{csrf_token()}}}">
-        <input type="hidden" name="iduser" value="<?= $row->id ?>">
+        <input type="hidden" name="id" value="<?= $row->id ?>">
         Username :
-        <input type="text" name="user_name" value="<?= $row->name ?>" class="form-control">
+        <input type="text" name="name" value="<?= $row->name ?>" class="form-control">
         Password :
-        <input type="text" name="user_pass" value="<?= $row->pass ?>" class="form-control">
+        <input type="text" name="password" value="<?= $row->password ?>" class="form-control">
         Email :
-        <input type="text"  name="user_email" value="<?= $row->email?>" class="form-control">
+        <input type="text"  name="email" value="<?= $row->email?>" class="form-control">
 
         <br/>
         <input type="Submit" value="Edit Record" class="btn btn-primary">

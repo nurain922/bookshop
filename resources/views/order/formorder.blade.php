@@ -9,6 +9,8 @@
 <body>
         <form action="\store" method="POST">
         <input type="hidden" name="_token" value="{{{csrf_token()}}}">
+        ID :
+        <input type="text" name="iduser"  class="form-control">
         Book Title :
         <input type="text" readonly value="{{ $book->book_title }}" name="book_title"  class="form-control">
         Unit Price :
