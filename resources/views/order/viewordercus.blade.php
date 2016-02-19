@@ -1,9 +1,7 @@
 @extends('layout.master')
 @section('content')
-
+@section('order')
 <table class = "table table-bordered table-hover">
- 
-    
         <thead> 
             <th>Order ID</th>
             <th>Book Title</th>

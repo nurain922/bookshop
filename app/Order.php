@@ -14,8 +14,12 @@ class Order extends Model
      //}
 
      public function book(){
+
      	return $this->belongsTo('App\Book');
      }
 
-     
+     public function books()
+{
+    return $this->hasMany('App\Book');
+}
 }

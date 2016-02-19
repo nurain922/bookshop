@@ -2,14 +2,7 @@
 
 
 
-Route::get('books', function () {
-	$books = App\Book::all();
-	foreach($books as $book) {
-		echo $book->book_title . "<br />";
-   }
-}); 
-
-Route::get('orders', function () {
+Route::get('orde', function () {
 	$orders = App\Order::all();
 	foreach($orders as $order) {
 		$book = App\Book::find($order->id);
@@ -23,16 +16,6 @@ Route::get('/invoice', function () {
 //index
 
 
-
-
-//form for books
-
-
-
-
-Route::get('user', 'UserController@log');
-
-//Route::get('store', 'BookController@store');
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -51,40 +34,48 @@ Route::group(['middleware' => ['web']], function () {
 	$book = App\Book::where('book_title','=','Laravel Starter')->first();
 	echo $book->id;
 });
+// this all about books
+Route::get('books', 'BookController@index')->middleware('isAdmin'); // list of books
+Route::get('createbook', 'BookController@form'); // create a form for book
+Route::get('edit/{id}', 'BookController@edit'); //edit books
+Route::get('book/edit/{id}', 'BookController@edit'); //edit books 
+Route::get('book/{id}', 'BookController@show'); //view a book
+Route::post('save', 'BookController@save'); // save a book
+Route::post('update', 'BookController@update'); //update a book after changes
+Route::get('delete/{id}', 'BookController@delete'); // delete a book
 
-Route::get('books', 'BookController@index')->middleware('isAdmin');
-Route::get('createbook', 'BookController@form');
-Route::get('edit/{id}', 'BookController@edit');
-Route::get('book/edit/{id}', 'BookController@edit');
-Route::get('book/{id}', 'BookController@show');
-Route::post('save', 'BookController@save');
-Route::post('update', 'BookController@update');
-Route::get('delete/{id}', 'BookController@delete');
+//this all about orders
+Route::get('orders', 'OrderController@index')->middleware('isAdmin'); // list of order that have been made
+Route::get('createorders', 'OrderController@index_cus')->middleware('auth'); //list of order that customer can be made
+Route::get('account', 'OrderController@viewordercus')->middleware('auth'); // for user view
+Route::get('orderview', 'OrderController@viewordercus')->middleware('isAdmin');// for admin view the order
+Route::get('view/{id}',['as' => 'order_view', 'uses' => 'OrderController@show'])->middleware('isAdmin');
+//view order one by one by ID
+Route::get('createorder/{book_id}', 'OrderController@create'); // create form for customer to purchase
+Route::POST('store', 'OrderController@store');//store order that customer made
+Route::get('show', 'OrderController@showforuser'); // create form for customer to purchase
+Route::get('delete/{id}', 'OrderController@delete'); // delete an order
 
-//form for payment
-Route::get('orders', 'OrderController@index')->middleware('isAdmin');
-
-Route::get('createorders', 'OrderController@index_cus')->middleware('auth');
-Route::get('ordercustomer', 'OrderController@vieworder')->middleware('auth');
-Route::get('orderview', 'OrderController@viewordercus')->middleware('auth');
-Route::get('createorder/{book_id}', 'OrderController@create');
-Route::POST('store', 'OrderController@store');
-
-
+//this all about user
+Route::get('users', 'UserController@index');
 Route::get('createuser', 'UserController@create');
 Route::get('edituser/{id}', 'UserController@edit');
 Route::get('user/{id}', 'UserController@show');
 Route::post('storeuser', 'UserController@save');
 Route::post('updateuser', 'UserController@update');
-Route::get('users', 'UserController@index');
 Route::get('deleteuser/{id}', 'UserController@delete');
 
 Route::auth();
 Route::get('/home', 'HomeController@index');
+
 Route::get('/', function () {
    return view('welcome');
+
+
 });
 
+
+   Route::get('/acc', 'HomeController@log');
 });
 
 

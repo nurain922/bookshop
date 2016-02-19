@@ -12,11 +12,6 @@ class UserController extends Controller
     {
         $this->middleware('isAdmin'); //only admin 
     }
-
-
-  public function log(){
-    return view('user.user');
-  }
  
   /**
    * Display a listing of the resource.

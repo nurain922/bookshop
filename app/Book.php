@@ -8,4 +8,9 @@ class Book extends Model
 {
     //
     protected $table = 'books';
+
+    public function order(){
+     	return $this->belongsTo('App\Order');
+     }
+
 }

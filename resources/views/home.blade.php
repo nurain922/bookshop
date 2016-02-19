@@ -10,10 +10,12 @@
                 <div class="panel-body">
                     You are logged in!
                 </div>
-
             </div>
         </div>
           <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+               <div class="panel-heading">Admin</div>
+                <div class="panel-body">
             <div class="col-lg-3 col-xs-3">
               <!-- small box -->
               <div class="small-box bg-aqua">
@@ -53,33 +55,45 @@
                 <a href="{{('/users')}}" class="small-box-footer">Check this out! <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
+              </div>
+            </div>
+        </div>
+
+
+            <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+               <div class="panel-heading">User</div>
+                <div class="panel-body">
                <div class="col-lg-3 col-xs-3">
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3>New User</h3>
-                  <p>New Account</p>
+                  <h3>Account</h3>
+                  <p>View Your Order</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-briefcase"></i>
                 </div>
-                <a href="/customer" class="small-box-footer">Click Here!<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="/account" class="small-box-footer">Click Here!<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
                  <div class="col-lg-3 col-xs-3">
               <!-- small box -->
               <div class="small-box bg-purple">
                 <div class="inner">
-                  <h3>Customer</h3>
-                  <p>Order</p>
+                  <h3>Create</h3>
+                  <p>An Order</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-briefcase"></i>
                 </div>
-                <a href="/ordercustomer" class="small-box-footer">Click Here!<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="/createorders" class="small-box-footer">Click Here!<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
+             </div>
             </div>
+        </div>
+          
     </div>
 </div>
 @endsection

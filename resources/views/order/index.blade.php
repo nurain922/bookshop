@@ -1,6 +1,10 @@
 @extends('layout.master')
 @section('content')
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-md-offset-1">
+
 @if(Session::has('message'))
     <div class="alert alert-info">
         {{ Session::get('message') }}
@@ -16,6 +20,7 @@
             <th>Unit Price</th>
             <th>Quantity</th>
             <th>Total</th>
+            <th>Action</th>
         </thead>
         <tbody>
             <?php 
@@ -29,10 +34,17 @@
               <td><?php echo $row->unitprice?></td>
               <td><?php echo $row->qty?></td>
               <td><?php echo $row->total?></td>
+            <td><a href="<?php echo 'view/'.$row->id ?>" class="btn btn-info">View</a>
+            <a href="<?php echo 'edit/'.$row->id ?>" class="btn btn-warning">Edit</a>
+            <a href="<?php echo 'delete/'.$row->id ?>" class="btn btn-danger">Delete</a></td>
              </tr>
               <?php } ?>
 
         </tbody>
   </table>
+
+    </div>
+  </div>
+</div>
 
 @stop()
