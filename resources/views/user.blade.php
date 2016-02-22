@@ -36,7 +36,7 @@
                 <div class="tab-content">
                   <div class="active tab-pane" id="activity">
                   
-                 
+                 <!--@include('order.show', array('order'=>'order'))-->
 
                   </div><!-- /.tab-pane -->
                   <div class="tab-pane" id="timeline">

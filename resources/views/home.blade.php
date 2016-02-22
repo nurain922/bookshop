@@ -74,7 +74,7 @@
                 <div class="icon">
                   <i class="fa fa-briefcase"></i>
                 </div>
-                <a href="/account" class="small-box-footer">Click Here!<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="/show" class="small-box-footer">Click Here!<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
                  <div class="col-lg-3 col-xs-3">

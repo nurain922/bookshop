@@ -27,7 +27,7 @@
                     <input type="text"  name="book_price" readonly value="<?= $book->book_price?>" class="form-control">
 
                     <br/>
-                    <a href="<?php echo '/edit/'.$book->id ?>" class="btn btn-success">Edit Record</a>
+                    <a href="<?php echo '/editbook/'.$book->id ?>" class="btn btn-success">Edit Record</a>
                     <a href="<?php echo '/books'?>" class="btn btn-primary">Back</a>
                     </form>
 

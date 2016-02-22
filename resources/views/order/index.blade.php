@@ -5,16 +5,33 @@
     <div class="row">
         <div class="col-md-12 col-md-offset-1">
 
-@if(Session::has('message'))
-    <div class="alert alert-info">
-        {{ Session::get('message') }}
-    </div>
+@if(Session::has('message1'))
+        <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-info"></i> Alert!</h4>
+        {{ Session::get('message1') }}
+        </div>
 @endif
 
+@if(Session::has('message2'))
+        <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-check"></i> Alert!</h4>
+        {{ Session::get('message2') }}
+        </div>
+@endif
+
+@if(Session::has('message3'))
+        <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+        {{ Session::get('message3') }}
+        </div>
+@endif
 
   <table class = "table table-bordered table-hover">
         <thead> 
-            <th>ID</th>
+            <th>Order ID</th>
             <th>User ID</th>
             <th>Book Title</th>
             <th>Unit Price</th>
@@ -35,8 +52,8 @@
               <td><?php echo $row->qty?></td>
               <td><?php echo $row->total?></td>
             <td><a href="<?php echo 'view/'.$row->id ?>" class="btn btn-info">View</a>
-            <a href="<?php echo 'edit/'.$row->id ?>" class="btn btn-warning">Edit</a>
-            <a href="<?php echo 'delete/'.$row->id ?>" class="btn btn-danger">Delete</a></td>
+            <a href="<?php echo 'editorder/'.$row->id ?>" class="btn btn-warning">Edit</a>
+            <a href="<?php echo 'deliverorder/'.$row->id ?>" class="btn btn-danger">Delete & Deliver</a></td>
              </tr>
               <?php } ?>
 

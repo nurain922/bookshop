@@ -39,7 +39,8 @@
                       </div>
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                          <input type="Submit" value="Edit Record" class="btn btn-primary">
+                          <input type="Submit" value="Edit Record" class="btn btn-warning">
+                          <a href="<?php echo '/users'?>" class="btn btn-primary">Back</a>
                         </div>
                       </div>
                     </form>

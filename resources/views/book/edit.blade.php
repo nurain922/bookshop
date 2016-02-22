@@ -12,7 +12,7 @@
                 <div class="panel-heading">Book Details</div>
 
                 <div class="panel-body">
-                        <form action="\update" method="POST">
+                        <form action="\updatebook" method="POST">
                         <input type="hidden" name="_token" value="{{{csrf_token()}}}">
                         <input type="hidden" name="id" value="<?= $row->id ?>">
                         BookTitle :

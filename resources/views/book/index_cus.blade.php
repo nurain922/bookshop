@@ -1,6 +1,9 @@
 @extends('layout.master')
 @section('content')
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-md-offset-1">
+            
   <table class = "table table-bordered table-hover">
         <thead> 
             <th>BookID</th>
@@ -32,4 +35,7 @@
 
         </tbody>
   </table>
+</div>
+</div>
+</div>
 @stop()

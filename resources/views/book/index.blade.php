@@ -55,8 +55,8 @@
 			  <td><?php echo $row->book_price?></td>
 			  <td>
                     <a href="<?php echo 'book/'.$row->id ?>" class="btn btn-info">View</a>
-			  		<a href="<?php echo 'edit/'.$row->id ?>" class="btn btn-warning">Edit</a>
-			  		<a href="<?php echo 'delete/'.$row->id ?>" class="btn btn-danger">Delete</a>
+			  		<a href="<?php echo 'editbook/'.$row->id ?>" class="btn btn-warning">Edit</a>
+			  		<a href="<?php echo 'deletebook/'.$row->id ?>" class="btn btn-danger">Delete</a>
 			  </td>
 			 </tr>
 			  <?php } ?>
