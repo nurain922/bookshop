@@ -5,6 +5,7 @@ use App\Http\Controllers;
 //for transaction or process
 use Illuminate\Http\Request;
 use Illuminate\Session\TokenMismatchException;
+use Illuminate\Pagination\LengthAwarePaginator;
 use App\Book as Book;
 class BookController extends Controller
 {
@@ -14,7 +15,7 @@ class BookController extends Controller
     }
 
     public function index(){
-   		$book = DB::table('books')->get();
+   		$book = DB::table('books')->paginate(5);
 		return view('book.index', ['book' => $book]);
     }
 
@@ -40,17 +41,34 @@ class BookController extends Controller
     public function save(Request $request)
     {
 		$post = $request->all();
-		$data = array(
+	 $v =\Validator::make($request->all(),
+    [
+        'book_title'             => 'required|unique:books|max:255',                       
+        'book_ISBN'            => 'required|unique:books|max:10',     
+        'book_author'         => 'required|max:255',
+        'book_publisher' => 'required|max:255',
+        'book_price' => 'required|numeric' ,
+    ]          
+    );
+    if($v->fails()){
+      return redirect()->back()->withErrors($v);
+    }
+    
+    else
+    {
+        $data = array(
                   'book_title' => $post['book_title'],
                   'book_ISBN' => $post['book_ISBN'],
                   'book_author' => $post['book_author'],
                   'book_publisher' => $post['book_publisher'],
                   'book_price' => $post['book_price'],
       );
+
     $i = DB::table('books')->insert($data);
     if($i > 0){
       $request->session()->flash('message2', 'The book has been successfully SAVED!');
       return redirect('books');
+    }
     }
   }
 

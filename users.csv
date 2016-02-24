@@ -1,0 +1,6 @@
+id,name,email,password,remember_token,created_at,updated_at,admin
+1,ain,ain@gmail.com,$2y$10$uBDJVB1fSi9Eu2jOTrLY0.tVU1I8nYwrsDw9vaXzIdrZarD.SLwgS,LsxjqgbQ5RzAJMmKRtUhYVPFKny0WeUDv4DpfLwrBw8fXwOWEoAv2ZUbP5k3,"2016-02-19 09:17:31","2016-02-22 07:27:42",1
+2,rashidah,ras_yidah@gmail.com,$2y$10$6AVORTsbN0jy2txWydoYVOnGkTKV3ce7BSLm9m47f68dlC0IucPB2,umZmQ7rgZHCsDao5ngBibwWRKVpfcLUJPfxFxDa7s5AWdk7CGsxnmmO7teH5,"2016-02-18 03:38:59","2016-02-22 04:46:54",0
+4,"ida shahirah",idashahirah@gmail.com,$2y$10$81x8qSibltx4egTsWgataOU51N1jpFcQbRcgaKttIixdDsXp0OBt.,j0ysU0pE4ZtyKEIxW1JzFAeqdNT71Q7ppJNmskvKlGetGGO6NQN8ecAayquS,"2016-02-22 03:50:12","2016-02-22 04:03:15",0
+5,abu,abu@gmail.com,$2y$10$DDjvENflmmYqboyVkNX5weNjDiiRX.MuSDdVlYEyf6VmC5hu.WZ1y,PaJuPiVa5igqYs6RuJF1xwYZKEj9fSbeksi5blglx6oZMMqIZIVyQP5KqpoU,"2016-02-22 05:12:09","2016-02-22 05:37:34",0
+6,"ain najihah",cahayamataberjaya@gmail.com,$2y$10$lQTAiNPBugQMEQKHnjujcuMbGdXGF/BgbqxvAK1oWLgQM8dU0OVtS,9zztsdOLKHBjVisWvTw0BkguMDZrccv09ZNC9IyGM8ymSjmZ4zPjeD9hNcez,"2016-02-22 06:50:29","2016-02-22 06:50:38",0

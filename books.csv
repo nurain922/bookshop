@@ -1,0 +1,6 @@
+id,book_title,book_ISBN,book_author,book_publisher,book_price
+1,"Ruby Cookbook ",1449373674,"Lucas Carlson","O'Reilly Media, Inc.",34.30
+2,"Exceptional C++: Engineering Puzzles, Prog",1449373674,"Lucas Carlson","O'Reilly Media, Inc.",123.00
+3,"Java Power Programming",1782160914,"Herb Sutter","Packt Publishing Ltd,",34.30
+4,"Laravel Starter",1449373673,"Lucas Carlson, ‎Leonard Richardson","O'Reilly Media, Inc.",60.40
+5,"Exceptional C++: Engineering Puzzles, Prog",1449373674,"Shawn McCool ","Packt Publishing Ltd,",81.50

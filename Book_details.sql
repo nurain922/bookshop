@@ -1,1 +1,0 @@
-SELECT * FROM book.book_details;

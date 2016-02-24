@@ -1,17 +1,4 @@
 <?php
-
-
-
-Route::get('orde', function () {
-	$orders = App\Order::all();
-	foreach($orders as $order) {
-		$book = App\Book::find($order->id);
-		echo $order->iduser . " . ordered " . $book->book_title . "<br />";
-   }
-}); 
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -42,21 +29,21 @@ Route::get('deletebook/{id}', 'BookController@delete'); // delete a book
 
 //this all about orders
 Route::get('orders', 'OrderController@index')->middleware('isAdmin'); // list of order that have been made
+
 Route::get('createorders', 'OrderController@index_cus')->middleware('auth'); //list of order that customer can be made
+
 Route::get('account', 'OrderController@viewordercus')->middleware('auth'); // for user view
 Route::get('orderview', 'OrderController@viewordercus')->middleware('isAdmin');// for admin view the order
 Route::get('view/{id}',['as' => 'order_view', 'uses' => 'OrderController@show'])->middleware('isAdmin');
 //view order one by one by ID order
 Route::get('createorder/{book_id}', 'OrderController@create'); // create form for customer to purchase
 Route::POST('store', 'OrderController@store');//store order that customer made
-Route::get('show', 'OrderController@showforuser'); // create form for customer to purchase
+Route::get('accountuser', 'OrderController@showforuser'); // create form for customer to purchase
 Route::get('editorder/{id}', 'OrderController@edit'); // edit an order by admin
 Route::post('updateorder', 'OrderController@update'); // edit an order by admin
 Route::get('deleteorder/{id}', 'OrderController@delete'); // delete an order
 Route::get('deliverorder/{id}', 'OrderController@deleteorder'); // delete an order
-Route::get('/invoice', function () {
-    return view('order.invoice');
-});
+
 
 //this all about user
 Route::get('users', 'UserController@index');
@@ -73,9 +60,6 @@ Route::get('/', function () {
    return view('welcome');
 });
 
-
-
-Route::get('/pass', 'Auth\PasswordController@index');
 
 });
 

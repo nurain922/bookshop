@@ -27,7 +27,7 @@
                     <input type="text"  name="total" readonly value="<?= $order->total?>" class="form-control">
 
                     <br/>
-                    <a href="<?php echo '/edit/'.$order->id ?>" class="btn btn-success">Edit Record</a>
+                    <a href="<?php echo '/editorder/'.$order->id ?>" class="btn btn-success">Edit Record</a>
                     <a href="<?php echo '/orders'?>" class="btn btn-primary">Back</a>
                     </form>
 

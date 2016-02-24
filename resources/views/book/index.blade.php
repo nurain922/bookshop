@@ -60,7 +60,7 @@
 			  </td>
 			 </tr>
 			  <?php } ?>
-
+              <?php echo $book->render()?>
         </tbody>
   </table>
 <center><a href="<?php echo'createbook' ?>" class="btn btn-success">Add New Book </a></center>

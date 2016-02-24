@@ -38,7 +38,8 @@
                     </select>
                     <input type="hidden"  name="total" >
                     <br/>
-                    <input type="Submit" value="Add to Cart"  class="btn btn-primary">
+                    <input type="Submit" value="Add to Cart"  class="btn btn-success">
+                   
                 </form>
                </div>
             </div>

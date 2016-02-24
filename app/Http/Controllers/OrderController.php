@@ -46,7 +46,7 @@ class OrderController extends Controller
         $i = DB::table('orders')->insert($data);
     if($i > 0){
       $request->session()->flash('message2', 'Your order has been successfully SAVED!');
-       return redirect('show');
+       return redirect('accountuser');
     }
     }
 
@@ -66,7 +66,7 @@ class OrderController extends Controller
 
       if($i >0){ 
         $request->session()->flash('message3', 'Warning! You just deleted a order!');
-        return redirect('show');
+        return redirect('accountuser');
     }
   }
     public function deleteorder(Request $request,$id){
