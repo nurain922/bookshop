@@ -15,15 +15,15 @@
                         <form action="\updatebook" method="POST">
                         <input type="hidden" name="_token" value="{{{csrf_token()}}}">
                         <input type="hidden" name="id" value="<?= $row->id ?>">
-                        BookTitle :
+                        Title :
                         <input type="text" name="book_title" value="<?= $row->book_title ?>" class="form-control">
-                        BookISBN :
+                        ISBN :
                         <input type="text" name="book_ISBN" value="<?= $row->book_ISBN ?>" class="form-control">
-                        BookAuthor :
+                        Author :
                         <input type="text" name="book_author" value="<?= $row->book_author ?>" class="form-control">
-                        BookPublisher :
+                        Publisher :
                         <input type="text"  name="book_publisher" value="<?= $row->book_publisher?>" class="form-control">
-                        BookPrice :
+                        Price :
                         <input type="text"  name="book_price" value="<?= $row->book_price?>" class="form-control">
 
                         <br/>

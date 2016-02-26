@@ -32,7 +32,7 @@
     <table class="table table-bordered table-hove">
         <thead>
         <tr>
-        <th>UserID</th>
+        <th>User ID</th>
         <th>Name</th>
         <th>Email</th>
         <th>Password</th>
@@ -57,7 +57,7 @@
         </td>
        </tr>
             <?php } ?>
-              
+              <?php echo $user->render()?>
         </tbody>
       
     </table>

@@ -34,11 +34,11 @@
   <table class = "table table-bordered table-hover">
         <thead> 
         	<th>BookID</th>
-        	<th>BookTitle</th>
-        	<th>BookISBN</th>
-        	<th>BookAuthor</th>
-        	<th>BookPublisher</th>
-        	<th>BookPrice</th>
+        	<th>Title</th>
+        	<th>ISBN</th>
+        	<th>Author</th>
+        	<th>Publisher</th>
+        	<th>Price</th>
         	<th><center>Action</center></th>
         </thead>
         <tbody>
@@ -60,7 +60,8 @@
 			  </td>
 			 </tr>
 			  <?php } ?>
-              <?php echo $book->render()?>
+			  <?php echo $book->render()?>
+
         </tbody>
   </table>
 <center><a href="<?php echo'createbook' ?>" class="btn btn-success">Add New Book </a></center>

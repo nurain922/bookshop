@@ -19,11 +19,12 @@
     <link rel="stylesheet" href="{{asset('assets/dist/css/skins/_all-skins.min.css')}}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+   
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
   </head>
 <body id="app-layout">
     <nav class="navbar navbar-default">
@@ -47,8 +48,17 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-
+                   <!-- Authentication Links -->
+                    @if (!Auth::guest())
+                        <li><a href="{{ url('/accountuser') }}">Account</a></li>
+                       
+                    @else  
+                            	<li><a href="{{ url('/') }}"></a></li>
+                 
+                    @endif
+                    
+ 		@if (Auth::user()->admin)
+ 		<li><a href="{{ url('/home') }}">Home</a></li>
                   <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Database <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
@@ -67,6 +77,9 @@
                   </ul>
                 </li>
                 </ul>
+                
+                @else
+                @endif
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -77,10 +90,11 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                Hi Bookworm Buddies , {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                            	<li><a href="{{ url('/accountuser') }}"><i class="fa fa-btn fa-user-secret"></i>Account</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>

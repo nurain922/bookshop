@@ -12,13 +12,15 @@ class OrderController extends Controller
 {
 
     public function index(){
-    $orders = DB::table('orders')->get();
+    $orders = DB::table('orders')->paginate(6);
+    $sorted = $orders->sortBy('id');
+    $sorted->values()->all();
     return view('order.index', ['order' => $orders]);
   }
 
   
     public function index_cus(){
-      $book = DB::table('books')->get();
+      $book = DB::table('books')->paginate(6);
     return view('order.index_cus', ['book' => $book]);
     }
 
@@ -84,6 +86,11 @@ class OrderController extends Controller
       return view('order.edit')->with('order',$order);
     }
 
+    public function editcus($id){
+      $order= DB::table('orders')->where('id',$id)->first();
+      return view('order.editcus')->with('order',$order);
+    }
+
      public function update(Request $request){
       $post = $request->all();
      $data = array(
@@ -95,8 +102,8 @@ class OrderController extends Controller
       );
     $i = DB::table('orders')->where('id',$post['id'])->update($data);
     if($i > 0){
-      $request->session()->flash('message1', 'The order has been successfully UPDATED!');
-      return redirect('orders');
+      $request->session()->flash('message2', 'The order has been successfully UPDATED!');
+      return redirect('accountuser');
     }
   }
 }

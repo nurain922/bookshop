@@ -17,7 +17,7 @@ class UserController extends Controller
    * Display a listing of the resource.
    */
   public function index(){
-      $users = DB::table('users')->get();
+      $users = DB::table('users')->paginate(7);
     return view('user.index', ['user' => $users]);
   }
 
@@ -75,4 +75,3 @@ class UserController extends Controller
       return view('user.view')->with('row',$row);
      }
   }
-

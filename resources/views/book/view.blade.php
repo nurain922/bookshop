@@ -15,15 +15,15 @@
                     <form>
                    
                     <input type="hidden" name="id" value="<?= $book->id ?>">
-                    BookTitle :
+                    Title :
                     <input type="text" name="book_title" readonly value="<?= $book->book_title ?>" class="form-control">
-                    BookISBN :
+                    ISBN :
                     <input type="text" name="book_ISBN" readonly value="<?= $book->book_ISBN ?>" class="form-control">
-                    BookAuthor :
+                    Author :
                     <input type="text" name="book_author" readonly value="<?= $book->book_author ?>" class="form-control">
-                    BookPublisher :
+                    Publisher :
                     <input type="text"  name="book_publisher" readonly value="<?= $book->book_publisher?>" class="form-control">
-                    BookPrice :
+                    Price :
                     <input type="text"  name="book_price" readonly value="<?= $book->book_price?>" class="form-control">
 
                     <br/>

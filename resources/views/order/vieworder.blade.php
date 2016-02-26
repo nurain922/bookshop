@@ -15,9 +15,9 @@
                     <form>
                    
                     <input type="hidden" name="id" value="<?= $order->id ?>">
-                    ID User :
+                    User ID :
                     <input type="text" name="iduser" readonly value="<?= $order->iduser ?>" class="form-control">
-                    Book Title :
+                    Title :
                     <input type="text" name="book_title" readonly value="<?= $order->book_title ?>" class="form-control">
                     Unit Price :
                     <input type="text" name="unitprice" readonly value="<?= $order->unitprice ?>" class="form-control">

@@ -5,7 +5,6 @@ use App\Http\Controllers;
 //for transaction or process
 use Illuminate\Http\Request;
 use Illuminate\Session\TokenMismatchException;
-use Illuminate\Pagination\LengthAwarePaginator;
 use App\Book as Book;
 class BookController extends Controller
 {
@@ -15,7 +14,7 @@ class BookController extends Controller
     }
 
     public function index(){
-   		$book = DB::table('books')->paginate(5);
+   		$book = DB::table('books')->paginate(6);
 		return view('book.index', ['book' => $book]);
     }
 
@@ -40,12 +39,12 @@ class BookController extends Controller
 
     public function save(Request $request)
     {
-		$post = $request->all();
+$post = $request->all();
 	 $v =\Validator::make($request->all(),
     [
-        'book_title'             => 'required|unique:books|max:255',                       
-        'book_ISBN'            => 'required|unique:books|max:10',     
-        'book_author'         => 'required|max:255',
+        'book_title'    => 'required|unique:books|max:255',                       
+        'book_ISBN'     => 'required|unique:books|max:10',     
+        'book_author'   => 'required|max:255',
         'book_publisher' => 'required|max:255',
         'book_price' => 'required|numeric' ,
     ]          
@@ -74,6 +73,21 @@ class BookController extends Controller
 
   public function update(Request $request){
     $post = $request->all();
+       $v =\Validator::make($request->all(),
+    [
+        'book_title'             => 'required|max:255',                       
+        'book_ISBN'            => 'required|max:10',     
+        'book_author'         => 'required|max:255',
+        'book_publisher' => 'required|max:255',
+        'book_price' => 'required|numeric' ,
+    ]          
+    );
+    if($v->fails()){
+      return redirect()->back()->withErrors($v);
+    }
+    
+    else
+    {
     $data = array(
                   'book_title' => $post['book_title'],
                   'book_ISBN' => $post['book_ISBN'],
@@ -86,6 +100,7 @@ class BookController extends Controller
       $request->session()->flash('message1', 'The book has been successfully UPDATED!');
       return redirect('books');
     }
+  }
   }
 
    public function show($id){

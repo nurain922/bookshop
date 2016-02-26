@@ -6,12 +6,12 @@
             
   <table class = "table table-bordered table-hover">
         <thead> 
-            <th>BookID</th>
-            <th>BookTitle</th>
-            <th>BookISBN</th>
-            <th>BookAuthor</th>
-            <th>BookPublisher</th>
-            <th>BookPrice</th>
+            <th>Book ID</th>
+            <th>Title</th>
+            <th>ISBN</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Price</th>
             <th>Action</th>
         </thead>
         <tbody>
@@ -32,9 +32,10 @@
               </td>
              </tr>
               <?php } ?>
-
+		<?php echo $book->render()?>
         </tbody>
   </table>
+  <a href="<?php echo '/accountuser' ?>" class="btn btn-danger"> Back to Account</a>
 </div>
 </div>
 </div>

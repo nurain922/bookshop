@@ -33,7 +33,7 @@
         <thead> 
             <th>Order ID</th>
             <th>User ID</th>
-            <th>Book Title</th>
+            <th>Title</th>
             <th>Unit Price</th>
             <th>Quantity</th>
             <th>Total</th>
@@ -56,7 +56,7 @@
             <a href="<?php echo 'deliverorder/'.$row->id ?>" class="btn btn-danger">Delete & Deliver</a></td>
              </tr>
               <?php } ?>
-
+	<?php echo $order->render()?>
         </tbody>
   </table>
 

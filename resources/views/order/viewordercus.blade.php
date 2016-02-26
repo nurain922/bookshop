@@ -5,6 +5,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 col-md-offset-1">
+@if(Session::has('message2'))
+        <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-check"></i> Alert!</h4>
+        {{ Session::get('message2') }}
+        </div>
+@endif
+
 
 @if(Session::has('message3'))
         <div class="alert alert-danger alert-dismissable">
@@ -36,14 +44,16 @@
               <td><?php echo $row->total?></td>
                 <td>
              <a href="<?php echo 'deleteorder/'.$row->id ?>" class="btn btn-danger">Delete</a>
-            <a href="<?php echo 'createorders' ?>" class="btn btn-primary">Back</a>
+             <a href="<?php echo 'editordercustomer/'.$row->id ?>" class="btn btn-warning">Edit</a>
+           
         </td>
              </tr>
               <?php } ?>
+              
         </tbody>
   </table>
 
-      
+  <a href="<?php echo 'createorders' ?>" class="btn btn-primary">Create New Order</a>
 </div>
 </div>
 </div>

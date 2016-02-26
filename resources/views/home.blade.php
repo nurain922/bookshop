@@ -3,16 +3,14 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-10 col-md-offset-1 text-center">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
                 <div class="panel-body">
-                    You are logged in!
+                    This is for admin side! You can see admin view now.
                 </div>
             </div>
         </div>
-          <div class="col-md-10 col-md-offset-1">
+          <div class="col-md-10 col-md-offset-1 text-center">
             <div class="panel panel-default">
                <div class="panel-heading">Admin</div>
                 <div class="panel-body">
@@ -20,8 +18,8 @@
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>10</h3>
-                  <p>New Orders</p>
+                  <h3>Order</h3>
+                  <p>List of Orders</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
@@ -33,8 +31,8 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>50<sup style="font-size: 20px">%</sup></h3>
-                  <p>Books Up!</p>
+                  <h3>Book</h3>
+                  <p>List of Books</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-book"></i>
@@ -46,8 +44,8 @@
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3>44</h3>
-                  <p>User Registrations</p>
+                  <h3>User</h3>
+                  <p>List of Users</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
@@ -60,7 +58,7 @@
         </div>
 
 
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-10 col-md-offset-1 text-center">
             <div class="panel panel-default">
                <div class="panel-heading">User</div>
                 <div class="panel-body">
@@ -82,7 +80,7 @@
               <div class="small-box bg-purple">
                 <div class="inner">
                   <h3>Create</h3>
-                  <p>An Order</p>
+                  <p>Create An Order</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-briefcase"></i>

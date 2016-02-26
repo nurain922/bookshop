@@ -16,10 +16,9 @@
                     <form action="\store" method="POST">
                     <input type="hidden" name="_token" value="{{{csrf_token()}}}">
                      <input type="hidden" value="{{ $book->id }}"name="id"  class="form-control">
-                    USER ID :
+                    User ID :
                     <input type="text" readonly value="{{ Auth::user()->id }}"name="iduser"  class="form-control">
-                   
-                    Book Title :
+                    Title :
                     <input type="text" readonly value="{{ $book->book_title }}" name="book_title"  class="form-control">
                     Unit Price :
                     <input type="text" readonly value="{{ $book->book_price }}" name="unitprice" class="form-control">
@@ -38,8 +37,9 @@
                     </select>
                     <input type="hidden"  name="total" >
                     <br/>
-                    <input type="Submit" value="Add to Cart"  class="btn btn-success">
-                   
+                    <input type="Submit" value="Add to Cart"  class="btn btn-primary">
+                    <a href="<?php echo '/accountuser' ?>" class="btn btn-danger"> Back to Account</a>
+         
                 </form>
                </div>
             </div>
